@@ -12,8 +12,10 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v2
-      - name: Hello world action step
-        id: hello
+      - id: semver
         uses: ./
         with:
           input: 'v1.2.3+abc'
+      - name: Print result
+        run: |
+          echo ${{ steps.semver.outputs.version}}
