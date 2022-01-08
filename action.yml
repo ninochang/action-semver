@@ -10,7 +10,12 @@ outputs:
   time: # id of output
     description: 'The time we greeted you'
 runs:
-  using: 'docker'
-  image: 'Dockerfile'
-  args:
-    - ${{ inputs.who-to-greet }}
+  using: 'compose'
+  steps:
+    - name: greeting
+      shell: bash
+      run: |
+        echo 123
+        echo ${{ github.action_path }}
+        echo helllo ${{inputs.who-to-greet}}
+      
