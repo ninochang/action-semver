@@ -12,6 +12,8 @@ outputs:
 runs:
   using: 'compose'
   steps:
+    - name: checkout
+      uses: actions/checkout@master
     - name: greeting
       shell: bash
       run: |
