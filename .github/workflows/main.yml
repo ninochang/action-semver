@@ -16,4 +16,4 @@ jobs:
         id: hello
         uses: ./
         with:
-          v1.2.3: 'Mona the Octocat'
+          input: 'v1.2.3+abc'
