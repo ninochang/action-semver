@@ -16,4 +16,4 @@ jobs:
         id: hello
         uses: ./
         with:
-          who-to-greet: 'Mona the Octocat'
+          v1.2.3: 'Mona the Octocat'

@@ -4,18 +4,26 @@ This action prints "Hello World" or "Hello" + the name of a person to greet to t
 
 ## Inputs
 
-## `who-to-greet`
+## `input`
 
-**Required** The name of the person to greet. Default `"World"`.
+**Required** The verion. Default `${{ github.ref_name }}`.
+
+## `pattern`
+
+**Required** Semver pattern. Default `^v?(?P<major>[0-9]+)(?:\.(?P<minor>[0-9]+))?(?:\.(?P<patch>[0-9]+))?(?:\-(?P<prerelease>[\w-]+))?(?:\+(?P<build>[\w-]+))?$`.
 
 ## Outputs
 
-## `time`
-
-The time we greeted you.
+## `semver`
 
 ## Example usage
-
-uses: actions/hello-world-docker-action@v1
-with:
-  who-to-greet: 'Mona the Octocat'
+```yaml
+  - name: Setup - Semver
+    id: semver
+    uses: swaglive/action-semver@v1
+    
+  - name: Configure
+    id: config
+    run: |
+      echo ${{ steps.semver.outputs.version }}
+```
