@@ -1,23 +1,12 @@
-# action.yml
-name: 'Semver'
-description: 'Greet someone and record the time'
+name: 'Hello World'
+description: 'Greet someone'
 inputs:
   who-to-greet:  # id of input
     description: 'Who to greet'
     required: true
     default: 'World'
-random-number:
-    description: "Greeting content"
-    value: ${{ steps.greeting.outputs.content }}
 runs:
-  using: 'compose'
+  using: "composite"
   steps:
-    - name: greeting
+    - run: echo Hello ${{ inputs.who-to-greet }}.
       shell: bash
-      run: |
-        echo 123
-        echo ${{ github.action_path }}
-        echo helllo ${{inputs.who-to-greet}}
-        OUTPUT=helllo ${{inputs.who-to-greet}}
-        echo "::set-output name=content::$(echo $OUTPUT)"
-      
