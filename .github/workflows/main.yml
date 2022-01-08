@@ -12,7 +12,8 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v2
-      - id: semver
+      - name: semver
+        id: semver
         uses: ./
         with:
           input: 'v1.2.3+abc'
