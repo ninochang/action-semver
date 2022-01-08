@@ -18,4 +18,9 @@ jobs:
           input: 'v1.2.3+abc'
       - name: Print result
         run: |
-          echo ${{ steps.semver.outputs.version}}
+          echo version:${{ steps.semver.outputs.version}}
+          echo major: ${{ steps.semver.outputs.major}}
+          echo minor: ${{ steps.semver.outputs.minor}}
+          echo patch: ${{ steps.semver.outputs.patch}}
+          echo prelease: ${{ steps.semver.outputs.prelease}}
+          echo build: ${{ steps.semver.outputs.build}}
